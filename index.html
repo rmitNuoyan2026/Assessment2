@@ -1,114 +1,94 @@
-<!DOCTYPE html>
-<html lang="en">
+body {
+  margin: 0;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #f7f7f7;
+  font-family: Arial, sans-serif;
+}
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Memory Icon Suite</title>
-  <link rel="stylesheet" href="style.css" />
-</head>
+.icons {
+  display: grid;
+  grid-template-columns: repeat(3, 140px);
+  gap: 60px;
+  justify-content: center;
+  align-items: center;
+}
 
-<body>
+/* icon-box 鍥哄畾澶у皬锛屾案杩滀笉琚唴瀹规拺寮€ */
+.icon-box {
+  width: 120px;
+  height: 120px;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
 
-  <div class="icons">
+/*
+  icon-wrapper锛氫富浣撶殑"閿氱偣"
+  - 鍥哄畾涓轰富浣撳浘鏍囩殑瀹為檯灏哄
+  - overflow: visible 鍏佽褰㈡€佷簩鐨勯檮鍔犲厓绱狅紙澹版尝銆佹槦鏄熺瓑锛夎秴鍑烘樉绀�
+  - 涓嶄細鍥犱负瀛愬厓绱犲彉澶ц€屾拺澶ц嚜韬�
+*/
+.icon-box .icon-wrapper {
+  position: relative;
+  width: 90px;
+  height: 90px;
+  flex-shrink: 0;
+}
 
-    <div class="icon-box icon-large">
-      <div class="icon-wrapper">
-        <img src="SVG/calendar.svg" class="icon default-icon">
-        <img src="SVG/calendar2.svg" class="icon hover-icon">
-      </div>
-      <audio src="sound/calender.mp3"></audio>
-    </div>
+.icon-large .icon-wrapper {
+  width: 105px;
+  height: 105px;
+}
 
-    <div class="icon-box">
-      <div class="icon-wrapper">
-        <img src="SVG/book.svg" class="icon default-icon book-default">
-        <img src="SVG/book2.svg" class="icon hover-icon">
-      </div>
-      <audio src="sound/book.mp3"></audio>
-    </div>
+/*
+  .icon锛氫袱绉嶅舰鎬侀兘缁濆瀹氫綅鎾戞弧 icon-wrapper
+  - 涓讳綋濮嬬粓鏄� wrapper 鐨� 100%脳100%锛屽ぇ灏忎笉鍙�
+  - 褰㈡€佷簩 SVG 閲岀殑闄勫姞鍏冪礌鑻ヨ秴鍑虹敾甯冧細鑷劧婧㈠嚭锛屼笉褰卞搷涓讳綋灏哄
+*/
+.icon {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  object-fit: contain;
+  /* 鍏佽闄勫姞鍏冪礌锛堝０娉�/鏄熸槦/绗旇抗锛夎秴鍑� wrapper 杈圭紭鏄剧ず */
+  overflow: visible;
+}
 
-    <div class="icon-box icon-large">
-      <div class="icon-wrapper">
-        <img src="SVG/headphone.svg" class="icon default-icon">
-        <img src="SVG/headphone2.svg" class="icon hover-icon headphone-hover">
-      </div>
-      <audio src="sound/headphone.mp3"></audio>
-    </div>
+.default-icon {
+  opacity: 1;
+  transition: opacity 0.25s ease;
+  z-index: 1;
+}
 
-    <div class="icon-box icon-large">
-      <div class="icon-wrapper">
-        <img src="SVG/camera.svg" class="icon default-icon">
-        <img src="SVG/camera2.svg" class="icon hover-icon">
-      </div>
-      <audio src="sound/camera.mp3"></audio>
-    </div>
+.hover-icon {
+  opacity: 0;
+  transition: opacity 0.25s ease;
+  z-index: 2;
+}
 
-    <div class="icon-box icon-large">
-      <div class="icon-wrapper">
-        <img src="SVG/pencil.svg" class="icon default-icon">
-        <img src="SVG/pencil2.svg" class="icon hover-icon">
-      </div>
-      <audio src="sound/pencil.mp3"></audio>
-    </div>
+.icon-box:hover .default-icon {
+  opacity: 0;
+}
 
-    <div class="icon-box">
-      <div class="icon-wrapper">
-        <img src="SVG/list.svg" class="icon default-icon">
-        <img src="SVG/list2.svg" class="icon hover-icon">
-      </div>
-      <audio src="sound/list.mp3"></audio>
-    </div>
+.icon-box:hover .hover-icon {
+  opacity: 1;
+}
 
-    <div class="icon-box icon-large">
-      <div class="icon-wrapper">
-        <img src="SVG/photo.svg" class="icon default-icon">
-        <img src="SVG/photo2.svg" class="icon hover-icon">
-      </div>
-      <audio src="sound/photo.mp3"></audio>
-    </div>
+/* 耳机形态二：画布比形态一宽，用padding补偿让耳机主体视觉大小一致 */
+.headphone-hover {
+  transform: scale(1.5);
+}
 
-    <div class="icon-box">
-      <div class="icon-wrapper">
-        <img src="SVG/hourglass.svg" class="icon default-icon">
-        <img src="SVG/hourglass2.svg" class="icon hover-icon">
-      </div>
-      <audio src="sound/hourglass.mp3"></audio>
-    </div>
-
-    <div class="icon-box">
-      <div class="icon-wrapper">
-        <img src="SVG/mail.svg" class="icon default-icon">
-        <img src="SVG/mail2.svg" class="icon hover-icon">
-      </div>
-      <audio src="sound/mail.mp3"></audio>
-    </div>
-
-  </div>
-
-  <script>
-    document.querySelectorAll('.icon-box').forEach(box => {
-      const audio = box.querySelector('audio');
-      if (audio) {
-        audio.load();
-      }
-      box.addEventListener('mouseenter', () => {
-        if (audio) {
-          audio.currentTime = 0;
-          audio.play().catch(e => console.log(e));
-        }
-      });
-      box.addEventListener('mouseleave', () => {
-        if (audio) {
-          audio.pause();
-          audio.currentTime = 0;
-        }
-      });
-    });
-  </script>
-
-
-
-</body>
-
-</html>
+.camera-hover {
+  width: 105px !important;
+  height: 105px !important;
+  object-fit: contain;
+  transform: none;
+}
