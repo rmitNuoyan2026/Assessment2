@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Memory Icon Suite</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+
+  <div class="icons">
+
+    <div class="icon-box icon-large">
+      <div class="icon-wrapper">
+        <img src="SVG/calendar.svg" class="icon default-icon">
+        <img src="SVG/calendar2.svg" class="icon hover-icon">
+      </div>
+      <audio src="sound/calender.mp3"></audio>
+    </div>
+
+    <div class="icon-box">
+      <div class="icon-wrapper">
+        <img src="SVG/book.svg" class="icon default-icon book-default">
+        <img src="SVG/book2.svg" class="icon hover-icon">
+      </div>
+      <audio src="sound/book.mp3"></audio>
+    </div>
+
+    <div class="icon-box icon-large">
+      <div class="icon-wrapper">
+        <img src="SVG/headphone.svg" class="icon default-icon">
+        <img src="SVG/headphone2.svg" class="icon hover-icon headphone-hover">
+      </div>
+      <audio src="sound/headphone.mp3"></audio>
+    </div>
+
+    <div class="icon-box icon-large">
+      <div class="icon-wrapper">
+        <img src="SVG/camera.svg" class="icon default-icon">
+        <img src="SVG/camera2.svg" class="icon hover-icon">
+      </div>
+      <audio src="sound/camera.mp3"></audio>
+    </div>
+
+    <div class="icon-box icon-large">
+      <div class="icon-wrapper">
+        <img src="SVG/pencil.svg" class="icon default-icon">
+        <img src="SVG/pencil2.svg" class="icon hover-icon">
+      </div>
+      <audio src="sound/pencil.mp3"></audio>
+    </div>
+
+    <div class="icon-box">
+      <div class="icon-wrapper">
+        <img src="SVG/list.svg" class="icon default-icon">
+        <img src="SVG/list2.svg" class="icon hover-icon">
+      </div>
+      <audio src="sound/list.mp3"></audio>
+    </div>
+
+    <div class="icon-box icon-large">
+      <div class="icon-wrapper">
+        <img src="SVG/photo.svg" class="icon default-icon">
+        <img src="SVG/photo2.svg" class="icon hover-icon">
+      </div>
+      <audio src="sound/photo.mp3"></audio>
+    </div>
+
+    <div class="icon-box">
+      <div class="icon-wrapper">
+        <img src="SVG/hourglass.svg" class="icon default-icon">
+        <img src="SVG/hourglass2.svg" class="icon hover-icon">
+      </div>
+      <audio src="sound/hourglass.mp3"></audio>
+    </div>
+
+    <div class="icon-box">
+      <div class="icon-wrapper">
+        <img src="SVG/mail.svg" class="icon default-icon">
+        <img src="SVG/mail2.svg" class="icon hover-icon">
+      </div>
+      <audio src="sound/mail.mp3"></audio>
+    </div>
+
+  </div>
+
+  <script>
+    document.querySelectorAll('.icon-box').forEach(box => {
+      const audio = box.querySelector('audio');
+      if (audio) {
+        audio.load();
+      }
+      box.addEventListener('mouseenter', () => {
+        if (audio) {
+          audio.currentTime = 0;
+          audio.play().catch(e => console.log(e));
+        }
+      });
+      box.addEventListener('mouseleave', () => {
+        if (audio) {
+          audio.pause();
+          audio.currentTime = 0;
+        }
+      });
+    });
+  </script>
+
+
+
+</body>
+
+</html>
