@@ -11,7 +11,6 @@ body {
   font-family: Arial, sans-serif;
 }
 
-
 .icons {
   display: grid;
   grid-template-columns: repeat(3, 140px);
@@ -20,7 +19,6 @@ body {
   align-items: center;
 }
 
-/* icon-box 鍥哄畾澶у皬锛屾案杩滀笉琚唴瀹规拺寮€ */
 .icon-box {
   width: 120px;
   height: 120px;
@@ -31,38 +29,36 @@ body {
   cursor: pointer;
 }
 
-/*
-  icon-wrapper锛氫富浣撶殑"閿氱偣"
-  - 鍥哄畾涓轰富浣撳浘鏍囩殑瀹為檯灏哄
-  - overflow: visible 鍏佽褰㈡€佷簩鐨勯檮鍔犲厓绱狅紙澹版尝銆佹槦鏄熺瓑锛夎秴鍑烘樉绀�
-  - 涓嶄細鍥犱负瀛愬厓绱犲彉澶ц€屾拺澶ц嚜韬�
-*/
 .icon-box .icon-wrapper {
   position: relative;
-  width: 90px;
-  height: 90px;
+  width: 120px;
+  height: 120px;
   flex-shrink: 0;
+  background: rgba(255, 255, 255, 0.6);
+  border-radius: 50%;
 }
 
 .icon-large .icon-wrapper {
-  width: 105px;
-  height: 105px;
+  width: 130px;
+  height: 130px;
 }
 
-/*
-  .icon锛氫袱绉嶅舰鎬侀兘缁濆瀹氫綅鎾戞弧 icon-wrapper
-  - 涓讳綋濮嬬粓鏄� wrapper 鐨� 100%脳100%锛屽ぇ灏忎笉鍙�
-  - 褰㈡€佷簩 SVG 閲岀殑闄勫姞鍏冪礌鑻ヨ秴鍑虹敾甯冧細鑷劧婧㈠嚭锛屼笉褰卞搷涓讳綋灏哄
-*/
 .icon {
   position: absolute;
-  width: 100%;
-  height: 100%;
+  width: 90px;
+  height: 90px;
   top: 0;
   left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
   object-fit: contain;
-  /* 鍏佽闄勫姞鍏冪礌锛堝０娉�/鏄熸槦/绗旇抗锛夎秴鍑� wrapper 杈圭紭鏄剧ず */
   overflow: visible;
+}
+
+.icon-large .icon {
+  width: 105px;
+  height: 105px;
 }
 
 .default-icon {
@@ -85,14 +81,25 @@ body {
   opacity: 1;
 }
 
-/* 耳机形态二：画布比形态一宽，用padding补偿让耳机主体视觉大小一致 */
-.headphone-hover {
-  transform: scale(1.5);
+.camera-hover {
+  transform: scale(1.05);
+  transform-origin: center center;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
 }
 
-.camera-hover {
-  width: 105px !important;
-  height: 105px !important;
-  object-fit: contain;
-  transform: none;
+@keyframes shake {
+  0%   { transform: rotate(0deg); }
+  25%  { transform: rotate(-8deg); }
+  50%  { transform: rotate(8deg); }
+  75%  { transform: rotate(-8deg); }
+  100% { transform: rotate(0deg); }
+}
+
+.shake {
+  animation: shake 0.4s ease;
 }

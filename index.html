@@ -28,10 +28,10 @@
       <audio src="sound/book.mp3"></audio>
     </div>
 
-    <div class="icon-box icon-large">
+    <div class="icon-box icon-large" id="headphone-box">
       <div class="icon-wrapper">
         <img src="img/headphone.svg" class="icon default-icon">
-        <img src="img/headphone2.svg" class="icon hover-icon headphone-hover">
+        <img src="img/headphone2.svg" class="icon hover-icon" id="headphone-icon">
       </div>
       <audio src="sound/headphone.mp3"></audio>
     </div>
@@ -39,7 +39,7 @@
     <div class="icon-box icon-large">
       <div class="icon-wrapper">
         <img src="img/camera.svg" class="icon default-icon">
-        <img src="img/camera2.svg" class="icon hover-icon">
+        <img src="img/camera2.svg" class="icon hover-icon camera-hover">
       </div>
       <audio src="sound/camera.mp3"></audio>
     </div>
@@ -105,10 +105,17 @@
         }
       });
     });
+
+    // 耳机点击震动效果
+    const headphoneBox = document.getElementById('headphone-box');
+    const headphoneIcon = document.getElementById('headphone-icon');
+    headphoneBox.addEventListener('mouseenter', () => {
+      headphoneIcon.classList.remove('shake');
+      void headphoneIcon.offsetWidth;
+      headphoneIcon.classList.add('shake');
+    });
   </script>
 
 </body>
 
 </html>
-
-
