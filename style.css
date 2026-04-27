@@ -4,9 +4,13 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  background: #f7f7f7;
+  background-image: url('img/background.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
   font-family: Arial, sans-serif;
 }
+
 
 .icons {
   display: grid;
