@@ -1,3 +1,7 @@
+/* =====================
+   Global Body Styles
+   Setting up full-height centered layout with a custom background image
+   ===================== */
 body {
   margin: 0;
   min-height: 100vh;
@@ -11,6 +15,10 @@ body {
   font-family: Arial, sans-serif;
 }
 
+/* =====================
+   Icon Grid Layout
+   3-column grid to display 9 icons evenly spaced
+   ===================== */
 .icons {
   display: grid;
   grid-template-columns: repeat(3, 140px);
@@ -19,6 +27,10 @@ body {
   align-items: center;
 }
 
+/* =====================
+   Icon Box
+   Fixed size container for each icon, prevents layout shift on hover
+   ===================== */
 .icon-box {
   width: 120px;
   height: 120px;
@@ -29,6 +41,11 @@ body {
   cursor: pointer;
 }
 
+/* =====================
+   Icon Wrapper
+   Semi-transparent white circle behind each icon
+   Gives a soft bubble effect to match the overall aesthetic
+   ===================== */
 .icon-box .icon-wrapper {
   position: relative;
   width: 120px;
@@ -38,11 +55,17 @@ body {
   border-radius: 50%;
 }
 
+/* Slightly larger bubble for icon-large icons */
 .icon-large .icon-wrapper {
   width: 130px;
   height: 130px;
 }
 
+/* =====================
+   Icon Image
+   All icons are absolutely positioned inside the wrapper
+   so they stay centered regardless of wrapper size
+   ===================== */
 .icon {
   position: absolute;
   width: 90px;
@@ -53,14 +76,21 @@ body {
   bottom: 0;
   margin: auto;
   object-fit: contain;
+  /* overflow visible allows decorative elements like sparkles or sound waves
+     to extend beyond the icon boundary without affecting layout */
   overflow: visible;
 }
 
+/* Larger icon size for icon-large variant */
 .icon-large .icon {
   width: 105px;
   height: 105px;
 }
 
+/* =====================
+   Hover State Transition
+   Default icon fades out, hover icon fades in smoothly
+   ===================== */
 .default-icon {
   opacity: 1;
   transition: opacity 0.25s ease;
@@ -81,6 +111,21 @@ body {
   opacity: 1;
 }
 
+/* =====================
+   Book Icon Adjustments
+   The open book SVG has a wider canvas than the closed book,
+   so its size is manually reduced to keep visual consistency
+   ===================== */
+.book-hover {
+  width: 105px !important;
+  height: 105px !important;
+}
+
+/* =====================
+   Camera Icon Adjustment
+   camera2.svg has a sparkle element that shifts the visual center,
+   scale and centering adjustments are applied to compensate
+   ===================== */
 .camera-hover {
   transform: scale(1.05);
   transform-origin: center center;
@@ -92,6 +137,11 @@ body {
   margin: auto;
 }
 
+/* =====================
+   Shake Animation
+   Applied to the headphone hover icon to simulate sound vibration
+   Triggered by JavaScript on mouseenter
+   ===================== */
 @keyframes shake {
   0%   { transform: rotate(0deg); }
   25%  { transform: rotate(-8deg); }

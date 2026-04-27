@@ -5,29 +5,36 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Memory Icon Suite</title>
+  <!-- Linking the external CSS file for all styling -->
   <link rel="stylesheet" href="style.css" />
 </head>
 
 <body>
 
+  <!-- Main icon grid container -->
   <div class="icons">
 
+    <!-- Calendar icon: using icon-large class to make it slightly bigger -->
     <div class="icon-box icon-large">
       <div class="icon-wrapper">
+        <!-- Default state shows the flat calendar icon -->
         <img src="img/calendar.svg" class="icon default-icon">
+        <!-- Hover state reveals the holographic version -->
         <img src="img/calendar2.svg" class="icon hover-icon">
       </div>
       <audio src="sound/calender.mp3"></audio>
     </div>
 
+    <!-- Book icon: hover state shows an open book to suggest reading -->
     <div class="icon-box">
       <div class="icon-wrapper">
         <img src="img/book.svg" class="icon default-icon book-default">
-        <img src="img/book2.svg" class="icon hover-icon">
+        <img src="img/book2.svg" class="icon hover-icon book-hover">
       </div>
       <audio src="sound/book.mp3"></audio>
     </div>
 
+    <!-- Headphone icon: hover triggers shake animation to simulate sound vibration -->
     <div class="icon-box icon-large" id="headphone-box">
       <div class="icon-wrapper">
         <img src="img/headphone.svg" class="icon default-icon">
@@ -36,6 +43,7 @@
       <audio src="sound/headphone.mp3"></audio>
     </div>
 
+    <!-- Camera icon: hover state adds a sparkle element to suggest a photo moment -->
     <div class="icon-box icon-large">
       <div class="icon-wrapper">
         <img src="img/camera.svg" class="icon default-icon">
@@ -44,6 +52,7 @@
       <audio src="sound/camera.mp3"></audio>
     </div>
 
+    <!-- Pencil icon: hover state shows a rainbow pencil to represent creativity -->
     <div class="icon-box icon-large">
       <div class="icon-wrapper">
         <img src="img/pencil.svg" class="icon default-icon">
@@ -52,6 +61,7 @@
       <audio src="sound/pencil.mp3"></audio>
     </div>
 
+    <!-- List icon: hover state shows checkmarks to indicate task completion -->
     <div class="icon-box">
       <div class="icon-wrapper">
         <img src="img/list.svg" class="icon default-icon">
@@ -60,6 +70,7 @@
       <audio src="sound/list.mp3"></audio>
     </div>
 
+    <!-- Photo icon: hover state shows stacked photos to suggest a collection -->
     <div class="icon-box icon-large">
       <div class="icon-wrapper">
         <img src="img/photo.svg" class="icon default-icon">
@@ -68,6 +79,7 @@
       <audio src="sound/photo.mp3"></audio>
     </div>
 
+    <!-- Hourglass icon: hover state adds detail to emphasize the passage of time -->
     <div class="icon-box">
       <div class="icon-wrapper">
         <img src="img/hourglass.svg" class="icon default-icon">
@@ -76,6 +88,7 @@
       <audio src="sound/hourglass.mp3"></audio>
     </div>
 
+    <!-- Mail icon: hover state shows an open envelope to suggest a message received -->
     <div class="icon-box">
       <div class="icon-wrapper">
         <img src="img/mail.svg" class="icon default-icon">
@@ -87,17 +100,20 @@
   </div>
 
   <script>
+    // Loop through all icon boxes and attach audio playback on hover
     document.querySelectorAll('.icon-box').forEach(box => {
       const audio = box.querySelector('audio');
       if (audio) {
         audio.load();
       }
+      // Play sound when mouse enters the icon
       box.addEventListener('mouseenter', () => {
         if (audio) {
           audio.currentTime = 0;
           audio.play().catch(e => console.log(e));
         }
       });
+      // Stop sound when mouse leaves the icon
       box.addEventListener('mouseleave', () => {
         if (audio) {
           audio.pause();
@@ -106,12 +122,13 @@
       });
     });
 
-    // 耳机点击震动效果
+    // Headphone shake animation triggered on hover
+    // This simulates sound vibration as a visual feedback
     const headphoneBox = document.getElementById('headphone-box');
     const headphoneIcon = document.getElementById('headphone-icon');
     headphoneBox.addEventListener('mouseenter', () => {
       headphoneIcon.classList.remove('shake');
-      void headphoneIcon.offsetWidth;
+      void headphoneIcon.offsetWidth; // Reset animation
       headphoneIcon.classList.add('shake');
     });
   </script>
